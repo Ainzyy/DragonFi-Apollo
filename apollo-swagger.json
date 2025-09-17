@@ -1,0 +1,2716 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "DragonFi.Apollo.API",
+    "version": "1.0"
+  },
+  "paths": {
+    "/v1/Authenticate/InstitutionLogin": {
+      "post": {
+        "tags": [
+          "Authenticate"
+        ],
+        "parameters": [
+          {
+            "name": "DF-API-KEY",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "DF-TS",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "DF-HASH",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Authenticate/GenerateToken": {
+      "post": {
+        "tags": [
+          "Authenticate"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json; x-api-version=1.0": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json; x-api-version=1.0": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json; x-api-version=1.0": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Client/CreateIndividual": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLocalIndividualRequest"
+              }
+            },
+            "text/json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLocalIndividualRequest"
+              }
+            },
+            "application/*+json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLocalIndividualRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain; x-api-version=1.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateIndividualResponse"
+                }
+              },
+              "application/json; x-api-version=1.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateIndividualResponse"
+                }
+              },
+              "text/json; x-api-version=1.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateIndividualResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Client/UpdateIndividual": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "ClientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PartnerId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateIndividualRequest"
+              }
+            },
+            "text/json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateIndividualRequest"
+              }
+            },
+            "application/*+json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateIndividualRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain; x-api-version=1.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateIndividualResponse"
+                }
+              },
+              "application/json; x-api-version=1.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateIndividualResponse"
+                }
+              },
+              "text/json; x-api-version=1.0": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateIndividualResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Client/UpdateClientPhotos/json": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "ClientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PartnerId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IdentificationType",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "enum": [
+                "UMId",
+                "SSS",
+                "DriversLicense",
+                "Passport",
+                "Philsys",
+                "Postal",
+                "ProfessionalId"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/IdPhotosJsonRequest"
+              }
+            },
+            "text/json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/IdPhotosJsonRequest"
+              }
+            },
+            "application/*+json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/IdPhotosJsonRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Client/UpdateClientPhotos/form": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "ClientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PartnerId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IdentificationType",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "enum": [
+                "UMId",
+                "SSS",
+                "DriversLicense",
+                "Passport",
+                "Philsys",
+                "Postal",
+                "ProfessionalId"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Selfie": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "IdFront": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "IdBack": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Signature": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Selfie": {
+                  "style": "form"
+                },
+                "IdFront": {
+                  "style": "form"
+                },
+                "IdBack": {
+                  "style": "form"
+                },
+                "Signature": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Client/VerifyClient": {
+      "post": {
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "ClientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PartnerId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Client/GetClientStatus": {
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "ClientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PartnerId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Client/GetClient": {
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "ClientCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PartnerId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Client/GetClientsList": {
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "FilterBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "FilterValue",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "SortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Asc",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "PageNum",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          },
+          {
+            "name": "IsPaged",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Client/SendTestEmail": {
+      "get": {
+        "tags": [
+          "Client"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/CorporateActions/GetCalendar": {
+      "get": {
+        "tags": [
+          "CorporateActions"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Lookups/GetLookups": {
+      "get": {
+        "tags": [
+          "Lookups"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Lookups/GetCountries": {
+      "get": {
+        "tags": [
+          "Lookups"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Lookups/GetRegions": {
+      "get": {
+        "tags": [
+          "Lookups"
+        ],
+        "parameters": [
+          {
+            "name": "countryId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Lookups/GetProvinces": {
+      "get": {
+        "tags": [
+          "Lookups"
+        ],
+        "parameters": [
+          {
+            "name": "regionId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Lookups/GetCities": {
+      "get": {
+        "tags": [
+          "Lookups"
+        ],
+        "parameters": [
+          {
+            "name": "provinceId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Lookups/GetTowns": {
+      "get": {
+        "tags": [
+          "Lookups"
+        ],
+        "parameters": [
+          {
+            "name": "cityId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Lookups/GetSectorsIndustries": {
+      "get": {
+        "tags": [
+          "Lookups"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Lookups/GetSectorById": {
+      "get": {
+        "tags": [
+          "Lookups"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Lookups/GetIndustryById": {
+      "get": {
+        "tags": [
+          "Lookups"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/MarketData/GetInstruments": {
+      "get": {
+        "tags": [
+          "MarketData"
+        ],
+        "parameters": [
+          {
+            "name": "SectorIds",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          },
+          {
+            "name": "IndustryIds",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          },
+          {
+            "name": "Symbols",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "FilterBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "FilterValue",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "SortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Asc",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "PageNum",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          },
+          {
+            "name": "IsPaged",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/MarketData/GetAllInstruments": {
+      "get": {
+        "tags": [
+          "MarketData"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain; x-api-version=1.0": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetAllInstrumentResponse"
+                  }
+                }
+              },
+              "application/json; x-api-version=1.0": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetAllInstrumentResponse"
+                  }
+                }
+              },
+              "text/json; x-api-version=1.0": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetAllInstrumentResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/MarketData/GetPopularStocks": {
+      "get": {
+        "tags": [
+          "MarketData"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/MarketData/GetSnapshots": {
+      "get": {
+        "tags": [
+          "MarketData"
+        ],
+        "parameters": [
+          {
+            "name": "Symbols",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/MarketData/GetMarketStatus": {
+      "get": {
+        "tags": [
+          "MarketData"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/MarketData/GetMarketSchedule": {
+      "get": {
+        "tags": [
+          "MarketData"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/MarketData/GetLines": {
+      "get": {
+        "tags": [
+          "MarketData"
+        ],
+        "parameters": [
+          {
+            "name": "candleType",
+            "in": "query",
+            "schema": {
+              "enum": [
+                "1m",
+                "5m",
+                "15m",
+                "30m",
+                "h",
+                "2h",
+                "4h",
+                "d",
+                "w",
+                "mo"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "DateRange",
+            "in": "query",
+            "schema": {
+              "enum": [
+                "Today",
+                "1D",
+                "2D",
+                "3D",
+                "5D",
+                "1W",
+                "1M",
+                "3M",
+                "6M",
+                "1Y",
+                "2Y",
+                "5Y"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "FromDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "ToDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/MarketData/GetBars": {
+      "get": {
+        "tags": [
+          "MarketData"
+        ],
+        "parameters": [
+          {
+            "name": "candleType",
+            "in": "query",
+            "schema": {
+              "enum": [
+                "1m",
+                "5m",
+                "15m",
+                "30m",
+                "h",
+                "2h",
+                "4h",
+                "d",
+                "w",
+                "mo"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "symbol",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "DateRange",
+            "in": "query",
+            "schema": {
+              "enum": [
+                "Today",
+                "1D",
+                "2D",
+                "3D",
+                "5D",
+                "1W",
+                "1M",
+                "3M",
+                "6M",
+                "1Y",
+                "2Y",
+                "5Y"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "FromDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "ToDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/MarketData/GetNews": {
+      "get": {
+        "tags": [
+          "MarketData"
+        ],
+        "parameters": [
+          {
+            "name": "Symbols",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "AccountCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "FilterBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "FilterValue",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "SortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Asc",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "PageNum",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          },
+          {
+            "name": "IsPaged",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/MarketData/GetTickSizes": {
+      "get": {
+        "tags": [
+          "MarketData"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/MarketData/GetPrices": {
+      "get": {
+        "tags": [
+          "MarketData"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/MarketData/GetMarketMovers": {
+      "get": {
+        "tags": [
+          "MarketData"
+        ],
+        "parameters": [
+          {
+            "name": "IsIndex",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/MarketData/GetSecuritiesDividendHistory": {
+      "get": {
+        "tags": [
+          "MarketData"
+        ],
+        "parameters": [
+          {
+            "name": "Symbol",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "FilterBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "FilterValue",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "SortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Asc",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "PageNum",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          },
+          {
+            "name": "IsPaged",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/MarketData/GetDisclosures": {
+      "get": {
+        "tags": [
+          "MarketData"
+        ],
+        "parameters": [
+          {
+            "name": "Symbol",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "FilterBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "FilterValue",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "SortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Asc",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "PageNum",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          },
+          {
+            "name": "IsPaged",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Money/GetBanksList": {
+      "get": {
+        "tags": [
+          "Money"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Money/Deposit": {
+      "post": {
+        "tags": [
+          "Money"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/DepositRequest"
+              }
+            },
+            "text/json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/DepositRequest"
+              }
+            },
+            "application/*+json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/DepositRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Money/Withdraw": {
+      "post": {
+        "tags": [
+          "Money"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/WithdrawRequest"
+              }
+            },
+            "text/json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/WithdrawRequest"
+              }
+            },
+            "application/*+json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/WithdrawRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Money/GetTransfers": {
+      "get": {
+        "tags": [
+          "Money"
+        ],
+        "parameters": [
+          {
+            "name": "ClientCode",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PartnerId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Money/GetTransferDetail": {
+      "get": {
+        "tags": [
+          "Money"
+        ],
+        "parameters": [
+          {
+            "name": "TransferId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ReferenceNumber",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Money/GetPartnerDetail": {
+      "get": {
+        "tags": [
+          "Money"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Money/Settlement": {
+      "get": {
+        "tags": [
+          "Money"
+        ],
+        "parameters": [
+          {
+            "name": "Type",
+            "in": "query",
+            "schema": {
+              "enum": [
+                "All",
+                "Transaction",
+                "Payment",
+                "Adjustment"
+              ],
+              "type": "string",
+              "default": "Transaction"
+            }
+          },
+          {
+            "name": "Day",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "PageNum",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          },
+          {
+            "name": "IsPaged",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/OrderData/GetOrderHistory": {
+      "get": {
+        "tags": [
+          "OrderData"
+        ],
+        "parameters": [
+          {
+            "name": "AccountCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "OrderId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "ReferenceNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/OrderData/CreateOrder/{accountCode}": {
+      "post": {
+        "tags": [
+          "OrderData"
+        ],
+        "parameters": [
+          {
+            "name": "accountCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "referenceNumber",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isAutoExecute",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderRequest"
+              }
+            },
+            "text/json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderRequest"
+              }
+            },
+            "application/*+json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrderRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/OrderData/ReplaceOrder/{accountCode}": {
+      "put": {
+        "tags": [
+          "OrderData"
+        ],
+        "parameters": [
+          {
+            "name": "accountCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "OrderId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "ReferenceNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IsAutoExecute",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/ModifyOrderRequest"
+              }
+            },
+            "text/json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/ModifyOrderRequest"
+              }
+            },
+            "application/*+json; x-api-version=1.0": {
+              "schema": {
+                "$ref": "#/components/schemas/ModifyOrderRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/OrderData/CancelOrder/{accountCode}": {
+      "delete": {
+        "tags": [
+          "OrderData"
+        ],
+        "parameters": [
+          {
+            "name": "accountCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "OrderId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "ReferenceNumber",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IsAutoExecute",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/OrderData/CalculateInvestmentFees": {
+      "get": {
+        "tags": [
+          "OrderData"
+        ],
+        "parameters": [
+          {
+            "name": "LimitPrice",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Quantity",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "Side",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Reports/GetTradingSummary": {
+      "get": {
+        "tags": [
+          "Reports"
+        ],
+        "parameters": [
+          {
+            "name": "RequestDate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "Side",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "AccountNo",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "SortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Asc",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "IsPaged",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "PageNum",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1/Transactions/GetTransactionHistory": {
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "parameters": [
+          {
+            "name": "FilterBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "FilterValue",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "SortBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Asc",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "PageNum",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 1,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "FromDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "ToDate",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "AccountCode",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IsPaged",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ContactInfoRequest": {
+        "required": [
+          "fatcaQ1Answer",
+          "fatcaQ2Answer",
+          "mobileNoCountryCode",
+          "mobileNoOnly"
+        ],
+        "type": "object",
+        "properties": {
+          "mobileNoCountryCode": {
+            "type": "string"
+          },
+          "mobileNoOnly": {
+            "type": "string"
+          },
+          "address1": {
+            "type": "string",
+            "nullable": true
+          },
+          "address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryId": {
+            "type": "integer",
+            "format": "int64",
+            "default": null,
+            "nullable": true
+          },
+          "regionId": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
+          },
+          "provinceId": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
+          },
+          "cityId": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
+          },
+          "townId": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
+          },
+          "zipId": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "default": "PHL",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          },
+          "province": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "town": {
+            "type": "string",
+            "nullable": true
+          },
+          "zip": {
+            "type": "string",
+            "nullable": true
+          },
+          "fatcaQ1Answer": {
+            "type": "boolean"
+          },
+          "fatcaQ2Answer": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateIndividualResponse": {
+        "type": "object",
+        "properties": {
+          "clientCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateLocalIndividualRequest": {
+        "required": [
+          "partnerId"
+        ],
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "string"
+          },
+          "personalInfo": {
+            "$ref": "#/components/schemas/PersonalInfoRequest"
+          },
+          "financialInfo": {
+            "$ref": "#/components/schemas/FinancialInfoRequest"
+          },
+          "contactInfo": {
+            "$ref": "#/components/schemas/ContactInfoRequest"
+          },
+          "relatedParties": {
+            "$ref": "#/components/schemas/RelatedPartiesRequest"
+          },
+          "sourceOfFunds": {
+            "$ref": "#/components/schemas/SourceOfFundsRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateOrderRequest": {
+        "required": [
+          "quantity",
+          "symbol"
+        ],
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "side": {
+            "type": "string",
+            "nullable": true
+          },
+          "limitPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "stopPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tif": {
+            "type": "string",
+            "nullable": true
+          },
+          "expireDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DepositRequest": {
+        "type": "object",
+        "properties": {
+          "referenceNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "accountCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FinancialInfoRequest": {
+        "required": [
+          "annualIncomeId",
+          "employmentStatusId",
+          "investmentObjectiveId",
+          "tin",
+          "totalAssetId"
+        ],
+        "type": "object",
+        "properties": {
+          "tin": {
+            "type": "string"
+          },
+          "ustin": {
+            "type": "string",
+            "nullable": true
+          },
+          "employmentStatusId": {
+            "type": "integer",
+            "format": "int32",
+            "default": null
+          },
+          "occupationId": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
+          },
+          "occupation": {
+            "type": "string",
+            "default": null,
+            "nullable": true
+          },
+          "employerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "employerAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "telNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "investmentObjectiveId": {
+            "type": "integer",
+            "format": "int32",
+            "default": null
+          },
+          "annualIncomeId": {
+            "type": "integer",
+            "format": "int32",
+            "default": null
+          },
+          "totalAssetId": {
+            "type": "integer",
+            "format": "int32",
+            "default": null
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetAllInstrumentResponse": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IdPhotosJsonRequest": {
+        "type": "object",
+        "properties": {
+          "selfie": {
+            "type": "string",
+            "nullable": true
+          },
+          "idFront": {
+            "type": "string",
+            "nullable": true
+          },
+          "idBack": {
+            "type": "string",
+            "nullable": true
+          },
+          "signature": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModifyOrderRequest": {
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "limitPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "stopPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tif": {
+            "type": "string",
+            "nullable": true
+          },
+          "expireDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PersonalInfoRequest": {
+        "required": [
+          "countryOfCitizenship",
+          "dateOfBirth",
+          "emailAddress",
+          "firstName",
+          "gender",
+          "lastName",
+          "middleName",
+          "placeOfBirth"
+        ],
+        "type": "object",
+        "properties": {
+          "lastName": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "middleName": {
+            "type": "string"
+          },
+          "emailAddress": {
+            "type": "string"
+          },
+          "suffixNameId": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
+          },
+          "gender": {
+            "maxLength": 1,
+            "type": "string",
+            "default": "M"
+          },
+          "countryOfCitizenship": {
+            "type": "string",
+            "default": "PHL"
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "placeOfBirth": {
+            "type": "string"
+          },
+          "civilStatusId": {
+            "type": "integer",
+            "format": "int32",
+            "default": null,
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RelatedPartiesCompanies": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RelatedPartiesQ1Answer": {
+        "required": [
+          "answer"
+        ],
+        "type": "object",
+        "properties": {
+          "answer": {
+            "type": "boolean"
+          },
+          "tradingParticipantName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RelatedPartiesQ2Answer": {
+        "required": [
+          "answer"
+        ],
+        "type": "object",
+        "properties": {
+          "answer": {
+            "type": "boolean"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RelatedPartiesCompanies"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RelatedPartiesRequest": {
+        "type": "object",
+        "properties": {
+          "relatedPartiesQ1Answer": {
+            "$ref": "#/components/schemas/RelatedPartiesQ1Answer"
+          },
+          "relatedPartiesQ2Answer": {
+            "$ref": "#/components/schemas/RelatedPartiesQ2Answer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SourceOfFundsRequest": {
+        "type": "object",
+        "properties": {
+          "salary": {
+            "type": "boolean",
+            "default": false,
+            "nullable": true
+          },
+          "savings": {
+            "type": "boolean",
+            "default": false,
+            "nullable": true
+          },
+          "investments": {
+            "type": "boolean",
+            "default": false,
+            "nullable": true
+          },
+          "business": {
+            "type": "boolean",
+            "default": false,
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateContactInfoRequest": {
+        "type": "object",
+        "properties": {
+          "mobileNoCountryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobileNoOnly": {
+            "type": "string",
+            "nullable": true
+          },
+          "address1": {
+            "type": "string",
+            "nullable": true
+          },
+          "address2": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "regionId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "provinceId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cityId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "townId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "zipId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          },
+          "province": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "town": {
+            "type": "string",
+            "nullable": true
+          },
+          "zip": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateFinancialInfoRequest": {
+        "type": "object",
+        "properties": {
+          "tin": {
+            "type": "string",
+            "nullable": true
+          },
+          "ustin": {
+            "type": "string",
+            "nullable": true
+          },
+          "employmentStatusId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "occupationId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "occupation": {
+            "type": "string",
+            "nullable": true
+          },
+          "employerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "employerAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "telNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "investmentObjectiveId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "annualIncomeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "totalAssetId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateIndividualRequest": {
+        "type": "object",
+        "properties": {
+          "personalInfo": {
+            "$ref": "#/components/schemas/UpdatePersonalInfoRequest"
+          },
+          "financialInfo": {
+            "$ref": "#/components/schemas/UpdateFinancialInfoRequest"
+          },
+          "contactInfo": {
+            "$ref": "#/components/schemas/UpdateContactInfoRequest"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateIndividualResponse": {
+        "type": "object",
+        "properties": {
+          "clientCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdatePersonalInfoRequest": {
+        "type": "object",
+        "properties": {
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "suffixNameId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "civilStatusId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WithdrawRequest": {
+        "type": "object",
+        "properties": {
+          "referenceNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "accountCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme.",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
