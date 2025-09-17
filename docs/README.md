@@ -3,77 +3,34 @@
 ## Overview
 Welcome to the DragonFi Apollo API documentation. This guide provides detailed information about the available endpoints, their usage, and examples to help you integrate with our platform efficiently.
 
-## Version History
-- **v1.0.0**: Initial release with core functionalities.
-
 ## Authentication
-### Institution Login
-- **Endpoint**: `/auth/login`
-- **Method**: POST
-- **Description**: Authenticate an institution and retrieve an access token.
-
-### Refresh Token
-- **Endpoint**: `/auth/refresh`
-- **Method**: POST
-- **Description**: Refresh the access token using a valid refresh token.
+For detailed information about authentication, please refer to the [Authentication](authentication.md) page.
 
 ## Client Management
-### Create Client
-- **Endpoint**: `/client/create`
-- **Method**: POST
-- **Description**: Create a new client in the system.
-
-### Update Client Information
-- **Endpoint**: `/client/update`
-- **Method**: PUT
-- **Description**: Update existing client details.
-
-### Upload Client Photos
-- **Endpoint**: `/client/upload`
-- **Method**: POST
-- **Description**: Upload client photos in JSON or form format.
-
-### Verify Client
-- **Endpoint**: `/client/verify`
-- **Method**: POST
-- **Description**: Verify client identity.
-
-### Get Client Status
-- **Endpoint**: `/client/status`
-- **Method**: GET
-- **Description**: Retrieve the status of a client.
-
-### Get Client Information
-- **Endpoint**: `/client/info`
-- **Method**: GET
-- **Description**: Fetch detailed information about a client.
-
-### Get Client List
-- **Endpoint**: `/client/list`
-- **Method**: GET
-- **Description**: Retrieve a list of all clients.
+To learn about client management operations, visit the [Client Management](client-management.md) page.
 
 ## Corporate Actions
-### Get Corporate Actions Calendar
-- **Endpoint**: `/corporate-actions/calendar`
-- **Method**: GET
-- **Description**: Fetch the corporate actions calendar.
+Information regarding corporate actions can be found on the [Corporate Actions](corporate-actions.md) page.
 
 ## Lookups
-### Get Lookups
-- **Endpoint**: `/lookups`
-- **Method**: GET
-- **Description**: Retrieve lookup data.
+For lookup data and related information, check the [Lookups](lookups.md) page.
 
-### Get Countries
-- **Endpoint**: `/lookups/countries`
-- **Method**: GET
-- **Description**: Fetch a list of countries.
+## Market Data
+Access market data endpoints and learn how to retrieve various market information.
 
-### Get Regions
-- **Endpoint**: `/lookups/regions`
-- **Method**: GET
-- **Description**: Retrieve regions data.
+## Money Section
+Understand the money section API and how to manage financial data.
 
-## Notes
-- For detailed examples and request/response formats, refer to the Swagger JSON file provided.
+## Order Data
+Learn about order data endpoints to track and manage orders.
+
+## Reports
+Find out how to generate and retrieve reports through our API.
+
+## Transactions
+Get detailed information on transaction-related endpoints.
+
+---
+
+## Version History
+- **v1.0.0**: Initial release with core functionalities.
