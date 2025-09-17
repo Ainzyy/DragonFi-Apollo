@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <style>
     :root {
-      --theme-color: #4CAF50; /* Custom green */
-      --dark-bg: #121212;
+      --theme-color: #00D293; /* Custom green */
+      --dark-bg: #404040;
       --dark-text: #e0e0e0;
     }
     body.dark {
@@ -25,8 +25,10 @@
     window.$docsify = {
       name: 'DragonFi Apollo API',
       repo: '',
-      themeColor: '#4CAF50',
+      themeColor: '#00D293',
       coverpage: true,
+      loadSidebar: true,
+      subMaxLevel: 3,
       plugins: [
         function(hook, vm) {
           hook.doneEach(function() {
