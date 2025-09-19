@@ -9,13 +9,21 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <style>
     :root {
-      --theme-color: #00D293; /* Custom green */
-      --dark-bg: #404040;
-      --dark-text: #e0e0e0;
+      --theme-color: #00D293;
+      --page-bg-color: #ffffff;
+      --sidebar-bg-color: #ffffff;
+      --text-color: #000000;
     }
-    body.dark {
-      background-color: var(--dark-bg);
-      color: var(--dark-text);
+    body {
+      background-color: var(--page-bg-color);
+      color: var(--text-color);
+    }
+    .sidebar {
+      background-color: var(--sidebar-bg-color);
+      color: var(--text-color);
+    }
+    .theme-toggle {
+      display: none;
     }
   </style>
 </head>
@@ -28,7 +36,7 @@
       themeColor: '#00D293',
       coverpage: true,
       loadSidebar: true,
-      subMaxLevel: 3,
+      subMaxLevel: 4,
       plugins: [
         function(hook, vm) {
           hook.doneEach(function() {
@@ -37,6 +45,13 @@
         }
       ]
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.querySelector('.theme-toggle');
+      if (themeToggle) {
+        themeToggle.remove();
+      }
+    });
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
